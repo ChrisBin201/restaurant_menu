@@ -9,14 +9,11 @@ function Category({name}){
     const {Type, setType} = useContext(MenuContext);
     // console.log(typeof(setType));
     // console.log(Type);
-    const setMenu = () =>{
-        setType(name);
-    }
     let category_active = "";
     if(Type === name) category_active = "category_active";
     return(
         <li css ={styles} >
-            <button className={category_active} onClick= {setMenu}>{name}</button>
+            <button className={category_active} onClick= {() => setType(name)}>{name}</button>
         </li>
     )
 };

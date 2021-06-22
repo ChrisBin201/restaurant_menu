@@ -1,15 +1,14 @@
 /** @jsxRuntime classic */
 /**@jsx jsx */  
 import { css,jsx} from "@emotion/react";
-import menu from "../../data";
 import {useContext} from "react";
 import { MenuContext } from "../../Main";
-function MealList_All(){
-    const {Type, setType} = useContext(MenuContext);
+function MealList(){
+    const {Type, setType, Items} = useContext(MenuContext);
+    // console.log(Items);
     return(
-        menu.map((item,itemIndex) => {
+        Items.map((item,itemIndex) => {
             let {img, title, desc} = item;
-            if(Type ==='all')
             return(
                 <div css={styles}>
                     <div>
@@ -27,6 +26,9 @@ function MealList_All(){
 const styles = css
 `
 display: flex;
+border-bottom: 1px solid #c59d5f;
+margin: 0 15px;
+padding-bottom: 10px;
  img{
      width: 225px;
      height:150px;
@@ -41,4 +43,4 @@ display: flex;
      color: #979ba1;
  }
 `
-export default MealList_All;
+export default MealList;
